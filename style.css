@@ -1,0 +1,205 @@
+
+
+/*webpage layout setting*/
+/*.column {
+  float: left;
+  padding: 10px;
+}*/
+
+/* Left and right column */
+/*.column.side {
+  width: 25%;
+}*/
+
+/* Middle column */
+/*.column.middle {
+  width: 100%;
+}*/
+
+
+/*gallery setting*/
+* {
+  box-sizing: border-box;
+}
+
+div.gallery {
+  /*border: 1px solid #ccc;*/
+  float: left;
+  width: 20%;
+  padding: 10px;
+  margin: 0px 20px;
+  height: 400px;
+}
+
+div.gallery:hover {
+  padding: 0px;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+  /*border: solid green;*/
+}
+
+
+div.desc {
+  padding: 10px 10px;
+  text-align: center;
+  /*border: solid black;*/
+}
+
+div.addtion{
+  float: left;
+  width: 100%;
+}
+
+body {
+  font-size: 20px;
+}
+
+.navBar{
+  list-style-type: none;
+  margin: -10px;
+  padding: 0px 0px;
+  overflow: hidden;
+  background-color: white;
+  /*position: -webkit-sticky;  Safari 
+  position: sticky;
+  top: 0px;*/
+  /*border: solid blue*/
+}
+
+
+
+li {
+  float: left;
+}
+
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 0px 15px;
+  text-decoration: none;
+  font-family: "Crimson Text"; 
+  font-size: 24px; 
+  font-style: italic; 
+  font-variant: normal; 
+  font-weight: 300; 
+  line-height: 26.4px; 
+
+  /*border: solid red;*/
+}
+
+
+li img{
+  /*border: solid red;*/
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: ;
+}
+
+div.active {
+  background-color: #4CAF50;
+}
+
+h2{
+  text-align: center;
+}
+
+p{
+  text-align: center;
+}
+
+.sideNav{
+  width: 40%;
+  float:left;
+  padding: 30px 0px;
+  /*border: solid orange;*/
+  /*background-color: #111;*/
+}
+.middleNav{
+  width: 20%;
+  float:left;
+
+  /*border: solid orange;*/
+  /*background-color: #222;*/
+}
+
+.mainBody{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 80%
+}
+
+.intro{
+  padding: 30px; 
+  text-align:center;
+}
+
+.welcomeImg{
+  margin:-10px
+}
+
+.colum{
+    float: left;
+    width: 50%;
+    /*border: solid orange;*/
+    position: relative;
+
+}
+
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.order {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.centered{
+    position: absolute;
+    left:50%;
+    /*bottom: 10px;*/
+    transform: translate(-50%, -50%);
+    background-color: rgba(0,0,0,0.3);
+    width: 100%;
+    height:auto;
+
+}
+
+p { font-family: "Crimson Text"; 
+    font-size: 20px; 
+    font-style: italic; 
+    font-variant: normal; 
+    font-weight: 200; 
+    line-height: 20px; }
