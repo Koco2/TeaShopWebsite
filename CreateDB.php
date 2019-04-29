@@ -1,5 +1,6 @@
 <?php
-
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
 
     class ClassDB{
         public $servername = "127.0.0.1";
@@ -198,12 +199,5 @@
             $conn = null;
         }
     }
-
-    $classDB =  new ClassDB();
-    $classDB->createDB();
-    $classDB->createTable();
-    $classDB->addData();
-    $classDB->getLastID()
-
     
 ?>
