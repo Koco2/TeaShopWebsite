@@ -187,7 +187,8 @@
       gallery.className = "gallery";
 
       var link = document.createElement("a");
-      link.setAttribute("href", "moreInfo1.html");
+      var passPhoto = itemModelArray[i-1].photo;
+      link.setAttribute("href", "moreinfo.html?photo="+passPhoto);
       link.setAttribute("target", "_self");
 
       var photo = document.createElement("img");
@@ -212,10 +213,7 @@
 
       document.getElementsByClassName("mainBody")[0].appendChild(gallery); 
 
-
     }
-
-    
 
     alert("done");               
 
