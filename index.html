@@ -32,103 +32,105 @@
     </p>
 
 
-    <div class="gallery">
-      <a target="_self" href="moreInfo1.html">
-        <img src="imgs/tea1.jpg" alt="1" width="600" height="600">
+    <!-- <div class="gallery">
+      <a id="link1" target="_self" href="moreInfo1.html">
+        <img id="photo1">
       </a>
       <div class="desc">
-        <p>Red Tea Bag</p>
-        <p>12$</p>
+        <p id="name1"></p>
+        <p id="price1"></p>
       </div>
     </div>
     <div class="gallery">
-      <a target="_self" href="moreInfo2.html">
-        <img src="imgs/tea2.jpg" alt="2" width="600" height="600">
+      <a id="link2" target="_self" href="moreInfo2.html">
+        <img id="photo2">
       </a>
       <div class="desc">
-        <p>Green Mocha Powder</p>
-        <p>10$</p>
+        <p id="name2"></p>
+        <p id="price2"></p>
       </div>
     </div>
     <div class="gallery">
-      <a target="_self" href="moreInfo3.html">
-        <img src="imgs/tea3.jpg" alt="3" width="600" height="600">
+      <a id="link3" target="_self" href="moreInfo3.html">
+        <img id="photo3">
       </a>
       <div class="desc">
-        <p>Oolong Flower Mixed</p>
-        <p>15$</p>
+        <p id="name3"></p>
+        <p id="price3"></p>
       </div>
     </div>
     <div class="gallery">
-      <a target="_self" href="moreInfo4.html">
-        <img src="imgs/tea4.jpg" alt="4" width="600" height="600">
+      <a id="link4" target="_self" href="moreInfo4.html">
+        <img id="photo4">
       </a>
       <div class="desc">
-        <p>Lemon Red Tea</p>
-        <p>10$</p>
+        <p id="name4"></p>
+        <p id="price4"></p>
       </div>
     </div>
     <div class="gallery">
-      <a target="_self" href="moreInfo5.html">
-        <img src="imgs/tea5.jpg" alt="5" width="600" height="600">
+      <a id="link5" target="_self" href="moreInfo5.html">
+        <img id="photo5">
       </a>
       <div class="desc">
-        <p>Flower Tea</p>
-        <p>14$</p>
+        <p id="name5"></p>
+        <p id="price5"></p>
       </div>
     </div>
     <div class="gallery">
-      <a target="_self" href="moreInfo6.html">
-        <img src="imgs/tea6.jpg" alt="6" width="600" height="600">
+      <a id="link6" target="_self" href="moreInfo6.html">
+        <img id="photo6">
       </a>
       <div class="desc">
-        <p>Lemon & Flower</p>
-        <p>12$</p>
+        <p id="name6"></p>
+        <p id="price6"></p>
       </div>
     </div>
     <div class="gallery">
-      <a target="_self" href="moreInfo7.html">
-        <img src="imgs/tea7.jpg" alt="7" width="600" height="600">
+      <a id="link7" target="_self" href="moreInfo7.html">
+        <img id="photo7">
       </a>
       <div class="desc">
-        <p>Orange Z</p>
-        <p>12$</p>
+        <p id="name7"></p>
+        <p id="price7"></p>
       </div>
     </div>
     <div class="gallery">
-      <a target="_self" href="moreInfo8.html">
-        <img src="imgs/tea8.jpg" alt="8" width="600" height="600">
+      <a id="link8" target="_self" href="moreInfo8.html">
+        <img id="photo8">
       </a>
       <div class="desc">
-        <p>Black Tea</p>
-        <p>12$</p>
+        <p id="name8"></p>
+        <p id="price8"></p>
       </div>
     </div>
     <div class="gallery">
-      <a target="_self" href="moreInfo9.html">
-        <img src="imgs/tea9.jpg" alt="9" width="600" height="600">
+      <a id="link9" target="_self" href="moreInfo9.html">
+        <img id="photo9">
       </a>
       <div class="desc">
-        <p>Cinnamon Tea</p>
-        <p>12$</p>
+        <p id="name9"></p>
+        <p id="price9"></p>
       </div>
     </div>
     <div class="gallery">
-      <a target="_self" href="moreInfo10.html">
-        <img src="imgs/tea10.jpg" alt="10" width="600" height="600">
+      <a id="link10" target="_self" href="moreInfo10.html">
+        <img id="photo10">
       </a>
       <div class="desc">
-        <p>Cookie Mate</p>
-        <p>14$</p>
+        <p id="name10"></p>
+        <p id="price10"></p>
       </div>
-    </div>
+    </div> -->
 
   </div>
 
   <?php
-    ini_set('display_errors', 'On');
-    error_reporting(E_ALL | E_STRICT);
+  ini_set('display_errors', 'On');
+  error_reporting(E_ALL | E_STRICT);
     require_once "CreateDB.php";
+    require_once "ItemModel.php";
+
 
     $classDB =  new ClassDB();
     $classDB->createDB();
@@ -136,7 +138,7 @@
     $classDB->addData();
     $classDB->getLastID();
 
-
+    $itemModelArray = array();
 
     try {
         $conn = new PDO("mysql:host=$classDB->servername;dbname=$classDB->dbname", $classDB->username, $classDB->password);
@@ -146,12 +148,17 @@
 
         while ($row = $stmt->fetch()) {
 
-            //create UI here
-            echo ($row['name']."<br />\n");
-      
-              
-              
-        
+            //create Model
+            $itemModel = new ItemModel();
+
+            $itemModel->id = $row['id'];
+            $itemModel->name = $row['name'];
+            $itemModel->price = $row['price'];
+            $itemModel->des = $row['des'];
+            $itemModel->photo = $row['photo'];
+
+            array_push($itemModelArray, $itemModel);
+
         }
 
     }
@@ -159,12 +166,60 @@
         echo "Error: " . $e->getMessage();
     }
 
-    echo "Done!!!!";
     $conn = null;
-  
-
 
   ?>
+
+  <script type="text/javascript">
+
+    var itemModelArray = <?php echo json_encode($itemModelArray); ?>;
+
+    for (i = 1; i <= itemModelArray.length; i++) {
+      // var nameId = "name" + i;
+      // var photoId = "photo" + i;
+      // var priceId = "price" + i;
+
+
+      // document.getElementById(nameId).innerHTML = itemModelArray[i-1].name;
+      // document.getElementById(priceId).innerHTML = "$" + itemModelArray[i-1].price;
+      // document.getElementById(photoId).src = itemModelArray[i-1].photo;
+      var gallery = document.createElement("div");
+      gallery.className = "gallery";
+
+      var link = document.createElement("a");
+      link.setAttribute("href", "moreInfo1.html");
+      link.setAttribute("target", "_self");
+
+      var photo = document.createElement("img");
+      photo.src = itemModelArray[i-1].photo;
+
+      link.appendChild(photo);
+      gallery.appendChild(link);
+
+      var desc = document.createElement("div");
+      desc.className = "desc";
+
+      var p1 = document.createElement("p");
+      p1.innerHTML = itemModelArray[i-1].name;
+
+      var p2 = document.createElement("p");
+      p2.innerHTML = "$" + itemModelArray[i-1].price;
+
+      desc.appendChild(p1);
+      desc.appendChild(p2);
+
+      gallery.appendChild(desc);
+
+      document.getElementsByClassName("mainBody")[0].appendChild(gallery); 
+
+
+    }
+
+    
+
+    alert("done");               
+
+  </script>
 
 </body>
 </html>

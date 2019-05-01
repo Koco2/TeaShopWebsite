@@ -3,8 +3,53 @@
 <head>
 	<title></title>
 </head>
+
+<p id="name"></p>
+
 <body>
-<h1>This is HTML</h1>
-<?php echo "hdfguhbgzusgdfghdhhfgh";  ?>
+	<?php
+    ini_set('display_errors', 'On');
+    error_reporting(E_ALL | E_STRICT);
+    require_once "CreateDB.php";
+
+    $classDB =  new ClassDB();
+    $classDB->createDB();
+    $classDB->createTable();
+    $classDB->addData();
+    $classDB->getLastID();
+    $name = "unknown";
+
+
+
+    try {
+        $conn = new PDO("mysql:host=$classDB->servername;dbname=$classDB->dbname", $classDB->username, $classDB->password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $conn->query("SELECT * FROM Items");
+
+        while ($row = $stmt->fetch()) {
+
+            //create UI here
+            // echo ($row['name']."<br />\n");
+      		$name = $row['name'];
+        }
+
+    }
+    catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+
+    echo "Done!!!!";
+    $conn = null;
+
+  ?>
+
+	<script type="text/javascript">
+		// boolean outputs "" if false, "1" if true
+		var name = "<?php echo $name ?>"; 
+		document.getElementById("name").innerHTML = name;
+	</script>
+
+
 </body>
 </html>

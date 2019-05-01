@@ -25,19 +25,19 @@ error_reporting(E_ALL | E_STRICT);
 				    // use exec() because no results are returned
 				    $conn->exec($sql);
 
-				    echo "dropDB successfully <br>";
+				    // echo "dropDB successfully <br>";
 
 
                     $sql = "CREATE DATABASE $this->dbname";
 				    // use exec() because no results are returned
 				    $conn->exec($sql);
 
-                	echo "createDB successfully <br>";
+                	// echo "createDB successfully <br>";
                 
             }
             catch(PDOException $e)
             {
-                echo "Connection failed:" . $e->getMessage()."\n";
+                // echo "Connection failed:" . $e->getMessage()."\n";
             }
             
             
@@ -62,11 +62,11 @@ error_reporting(E_ALL | E_STRICT);
                 
                 // use exec() because no results are returned
                 $conn->exec($sql);
-                echo "Table MyGuests created successfully <br>";
+                // echo "Table MyGuests created successfully <br>";
             }
             catch(PDOException $e)
             {
-                echo "error:" . $e->getMessage() ;
+                // echo "error:" . $e->getMessage() ;
             }
             $conn = null;
         }
@@ -167,11 +167,11 @@ error_reporting(E_ALL | E_STRICT);
 			    $stmt->execute();
 
 
-			    echo "New records created successfully";
+			    // echo "New records created successfully";
             }
             catch(PDOException $e)
             {
-                echo "error" . $e->getMessage();
+                // echo "error" . $e->getMessage();
             }
             
             $conn = null;
@@ -187,7 +187,7 @@ error_reporting(E_ALL | E_STRICT);
                 // // use exec() because no results are returned
                 // $conn->exec($sql);
                 $last_id = $conn->lastInsertId();
-                echo ("<h1>asdfasdfa$last_id</h1>");
+                // echo ("<h1>asdfasdfa$last_id</h1>");
                 
             }
             catch(PDOException $e)
