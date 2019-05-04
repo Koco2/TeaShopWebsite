@@ -7,11 +7,11 @@
 
 	<div class="navBar">
     	<div class="sideNav">
-      		<li><a href="index.html">Home</a></li>
+      		<li><a href="index.php">Home</a></li>
       		<li><a href="#CommingSoon">CommingSoon</a></li>
     	</div>
     	<div class="middleNav">
-      		<li style="float:initial;"><img class="center" src="logo1.jpg" alt="logo" width=auto height=100px"></img><li>
+      		<li style="float:initial;"><img class="center" src="imgs/logo1.jpg" alt="logo" width=auto height=100px"></img><li>
     	</div>
     	<div class="sideNav">
     	</div>
@@ -20,13 +20,26 @@
 
 
 	<div class="colum">
-		<img src="tea8.jpg" width=100% height=auto>
+		<img id = "photo" src="tea1.jpg" width=100% height=auto>
 		<h2>Detailed Intro</h2>
-		<p>Freshly dried black tea in power form
+		<p id = "desc">Our classic Red Tea Bag is the base of our drink and very easy to use
 		</p>
 	</div>
 
 
+	<?php  
+
+		$photo = $_GET["photo"];
+		$desc = $_GET["desc"];
+	?>
+
+	<script type="text/javascript">
+		var photo = "<?php echo $photo ?>";  
+		document.getElementById("photo").src = photo;
+
+		var desc = "<?php echo $desc ?>";
+		document.getElementById("desc").innerHTML = desc;
+	</script>
 
 
 

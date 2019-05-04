@@ -6,7 +6,7 @@ error_reporting(E_ALL | E_STRICT);
         public $servername = "127.0.0.1";
         public $username = "root";
         public $password = "root";
-        public $dbname = "TestDB3";
+        public $dbname = "TeaShopDB";
         
 
   //       public function __construct(){

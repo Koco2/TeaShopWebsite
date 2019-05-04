@@ -6,7 +6,7 @@
 <body>
   <div class="navBar">
     <div class="sideNav">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.php">Home</a></li>
       <li><a href="#CommingSoon">CommingSoon</a></li>
     </div>
     <div class="middleNav">
@@ -30,99 +30,6 @@
       <p>Tea Shop is about bringing a fresh lifestyle to Orange County with premium tea
       We are passionate about quality tea and fine different style tea mix, sourcing specialty tea from a China Fujian. Our Premium Tea Collection will soothe the sensibility of the most discerning tea drinkers. While deciding on your beverage of choice, do not forget freshly brewed coffee can be the perfect to start your morning.   
     </p>
-
-
-    <!-- <div class="gallery">
-      <a id="link1" target="_self" href="moreInfo1.html">
-        <img id="photo1">
-      </a>
-      <div class="desc">
-        <p id="name1"></p>
-        <p id="price1"></p>
-      </div>
-    </div>
-    <div class="gallery">
-      <a id="link2" target="_self" href="moreInfo2.html">
-        <img id="photo2">
-      </a>
-      <div class="desc">
-        <p id="name2"></p>
-        <p id="price2"></p>
-      </div>
-    </div>
-    <div class="gallery">
-      <a id="link3" target="_self" href="moreInfo3.html">
-        <img id="photo3">
-      </a>
-      <div class="desc">
-        <p id="name3"></p>
-        <p id="price3"></p>
-      </div>
-    </div>
-    <div class="gallery">
-      <a id="link4" target="_self" href="moreInfo4.html">
-        <img id="photo4">
-      </a>
-      <div class="desc">
-        <p id="name4"></p>
-        <p id="price4"></p>
-      </div>
-    </div>
-    <div class="gallery">
-      <a id="link5" target="_self" href="moreInfo5.html">
-        <img id="photo5">
-      </a>
-      <div class="desc">
-        <p id="name5"></p>
-        <p id="price5"></p>
-      </div>
-    </div>
-    <div class="gallery">
-      <a id="link6" target="_self" href="moreInfo6.html">
-        <img id="photo6">
-      </a>
-      <div class="desc">
-        <p id="name6"></p>
-        <p id="price6"></p>
-      </div>
-    </div>
-    <div class="gallery">
-      <a id="link7" target="_self" href="moreInfo7.html">
-        <img id="photo7">
-      </a>
-      <div class="desc">
-        <p id="name7"></p>
-        <p id="price7"></p>
-      </div>
-    </div>
-    <div class="gallery">
-      <a id="link8" target="_self" href="moreInfo8.html">
-        <img id="photo8">
-      </a>
-      <div class="desc">
-        <p id="name8"></p>
-        <p id="price8"></p>
-      </div>
-    </div>
-    <div class="gallery">
-      <a id="link9" target="_self" href="moreInfo9.html">
-        <img id="photo9">
-      </a>
-      <div class="desc">
-        <p id="name9"></p>
-        <p id="price9"></p>
-      </div>
-    </div>
-    <div class="gallery">
-      <a id="link10" target="_self" href="moreInfo10.html">
-        <img id="photo10">
-      </a>
-      <div class="desc">
-        <p id="name10"></p>
-        <p id="price10"></p>
-      </div>
-    </div> -->
-
   </div>
 
   <?php
@@ -188,7 +95,8 @@
 
       var link = document.createElement("a");
       var passPhoto = itemModelArray[i-1].photo;
-      link.setAttribute("href", "moreinfo.html?photo="+passPhoto);
+      var passDesc = itemModelArray[i-1].des; 
+      link.setAttribute("href", "moreinfo.php?photo="+passPhoto+"&desc="+passDesc);
       link.setAttribute("target", "_self");
 
       var photo = document.createElement("img");
@@ -214,8 +122,7 @@
       document.getElementsByClassName("mainBody")[0].appendChild(gallery); 
 
     }
-
-    alert("done");               
+              
 
   </script>
 
