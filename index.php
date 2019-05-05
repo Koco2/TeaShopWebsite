@@ -97,7 +97,7 @@
       var passPhoto = itemModelArray[i-1].photo;
       var passDesc = itemModelArray[i-1].des; 
       link.setAttribute("href", "moreinfo.php?photo="+passPhoto+"&desc="+passDesc);
-      link.setAttribute("target", "_self");
+      //link.setAttribute("target", "_self");
 
       var photo = document.createElement("img");
       photo.src = itemModelArray[i-1].photo;

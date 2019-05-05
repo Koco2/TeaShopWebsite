@@ -5,7 +5,7 @@ error_reporting(E_ALL | E_STRICT);
     class ClassDB{
         public $servername = "127.0.0.1";
         public $username = "root";
-        public $password = "root";
+        public $password = "inf124";
         public $dbname = "TeaShopDB";
         
 
