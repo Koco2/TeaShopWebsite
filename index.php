@@ -24,11 +24,10 @@
 
   <div class="mainBody">
 
-    <div class="intro">
+    <div class="intro" id="intro">
       <h2>Welcome to Tea Shop</h2>
-      <h3>Made by Chen</h3>
-      <p>Tea Shop is about bringing a fresh lifestyle to Orange County with premium tea
-      We are passionate about quality tea and fine different style tea mix, sourcing specialty tea from a China Fujian. Our Premium Tea Collection will soothe the sensibility of the most discerning tea drinkers. While deciding on your beverage of choice, do not forget freshly brewed coffee can be the perfect to start your morning.   
+      <button type="button" onclick="loadIntro()">Show Introduction</button>
+      <p>  
     </p>
   </div>
 
@@ -123,6 +122,17 @@
 
     }
               
+    function loadIntro() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("intro").innerHTML =
+          this.responseText;
+        }
+      };
+      xhttp.open("GET", "intro.txt", true);
+      xhttp.send();
+    }
 
   </script>
 

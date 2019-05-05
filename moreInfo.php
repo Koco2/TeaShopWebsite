@@ -69,9 +69,9 @@
 		    <label for="address2">Shipping Address Line2</label>
 		    <input type="text" id="address2" name="address2" placeholder="address">
 
-		    <label for="address3">State</label>
-		    <input type="text" id="address3" name="address3" placeholder="State">
-
+		    <label id = "address3" for="address3">State</label>
+		    <input type="text" id="state" name="address3" placeholder="State" onkeyup="showHint(this.value)">
+		    
 		    <label for="address4">ZIP Code</label>
 		    <input type="text" id="address4" name="address4" placeholder="ZIPcode">
 
@@ -108,6 +108,23 @@
 	</div>
 
 	<script src="external.js"></script>
+	<script type="text/javascript">
+		function showHint(str) {
+		  var xhttp;
+		  if (str.length == 0) { 
+		    document.getElementById("state").value = "";
+		    return;
+		  }
+		  xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		      document.getElementById("state").value = this.responseText;
+		    }
+		  };
+		  xhttp.open("GET", "getState.php?q="+str, true);
+		  xhttp.send();   
+		}
+	</script>
 
 
 
