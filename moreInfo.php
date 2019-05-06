@@ -20,7 +20,7 @@
 
 
 	<div class="colum">
-		<img id = "photo" src="tea1.jpg" width=100% height=auto>
+		<img id = "photo" width=100% height=auto>
 		<h2>Detailed Intro</h2>
 		<p id = "desc">Our classic Red Tea Bag is the base of our drink and very easy to use
 		</p>
@@ -47,7 +47,7 @@
 	<div class="colum">
 		<div class="order">
 		
-		 <form action="mailto:cwang19@uci.edu" method= "post" enctype="text/plain" name="orderForm">
+		 <form action="submit.php" method= "get" enctype="text/plain" name="orderForm" onsubmit="return submitClicked();">
 		    <label for="productId">Product ID</label>
 		    <input type="text" id="productId" name="productId" placeholder="id..">
 
@@ -71,7 +71,7 @@
 
 		    <label id = "address3" for="address3">State</label>
 		    <input type="text" id="state" name="address3" placeholder="State" onkeyup="showHint(this.value)">
-		    
+
 		    <label for="address4">ZIP Code</label>
 		    <input type="text" id="address4" name="address4" placeholder="ZIPcode">
 
@@ -102,12 +102,11 @@
 		    </select>
 
 
-		    <input type="submit" value="Submit" onclick="inputCheck()">
+		    <input type="submit" value="Submit">
 		  </form>
 		</div>
 	</div>
 
-	<script src="external.js"></script>
 	<script type="text/javascript">
 		function showHint(str) {
 		  var xhttp;
@@ -124,6 +123,64 @@
 		  xhttp.open("GET", "getState.php?q="+str, true);
 		  xhttp.send();   
 		}
+
+		function submitClicked(){
+			var correct = true;
+			correct = inputCheck();
+			// wiriteToDB();
+			return correct;
+		
+		}
+
+		function inputCheck(correct){
+			if (document.orderForm.productId.value == ""){
+				alert("product id is required");
+				correct = false;
+			}	
+			else if (document.orderForm.quantity.value == ""){
+				alert("quantity must be a positive integer");
+				correct = false;
+			}
+			else if (document.orderForm.firstname.value == ""){
+				alert("firstname is required");
+				correct = false;
+			}
+			else if (document.orderForm.lastname.value == ""){
+				alert("lastname is required");
+				correct = false;
+			}
+			else if (document.orderForm.phoneNum.value == ""){
+				alert("phone number is required");
+				correct = false;
+			}
+			else if (document.orderForm.address1.value == ""){
+				alert("address line 1 is required");
+				correct = false;
+			}
+			else if (document.orderForm.address3.value == ""){
+				alert("stat is required");
+				correct = false;
+			}
+			else if (document.orderForm.address4.value == ""){
+				alert("ZIP code is required");
+				correct = false;
+			}
+			else if (document.orderForm.creditCard.value == ""){
+				alert("creditCard number is required");
+				correct = false;
+			}
+			else if (document.orderForm.expirationDate.value == ""){
+				alert("expirationDate is invalid");
+				correct = false;
+			}
+			else if (document.orderForm.securityCode.value == ""){
+				alert("securityCode empty");
+				correct = false;
+			}
+
+			return correct;	
+		}
+
 	</script>
 
 

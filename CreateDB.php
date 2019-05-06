@@ -59,10 +59,26 @@ error_reporting(E_ALL | E_STRICT);
                 des VARCHAR(500),
                 photo VARCHAR(30)
                 )";
-                
+           
                 // use exec() because no results are returned
                 $conn->exec($sql);
                 // echo "Table MyGuests created successfully <br>";
+           	
+                // create order
+                $sql = "CREATE TABLE Order (
+                id INT(100) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(30) NOT NULL,
+                price INT(100) NOT NULL,
+                des VARCHAR(500),
+                photo VARCHAR(30)
+                )";
+
+
+                // use exec() because no results are returned
+                $conn->exec($sql);
+                // echo "Table MyGuests created successfully <br>";
+
+                
             }
             catch(PDOException $e)
             {

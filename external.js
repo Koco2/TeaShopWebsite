@@ -1,3 +1,10 @@
+
+function submitClicked(){
+	// inputCheck();
+	// wiriteToDB();
+	alert("stop!");
+}
+
 function inputCheck(){
 	if (document.orderForm.productId.value == ""){
 		alert("product id is required");
@@ -32,4 +39,9 @@ function inputCheck(){
 	else if (document.orderForm.securityCode.value == ""){
 		alert("securityCode empty");
 	}	
+}
+
+
+function wiriteToDB(){
+	//pass
 }
